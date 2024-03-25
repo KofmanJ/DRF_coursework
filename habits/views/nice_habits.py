@@ -1,7 +1,7 @@
 from rest_framework.generics import CreateAPIView, ListAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
 
 from habits.models import NiceHabit
-from habits.serializers.nice_habit import NiceHabitSerializer
+from habits.serializers.nice_habits import NiceHabitSerializer
 
 
 class NiceHabitCreateAPIView(CreateAPIView):

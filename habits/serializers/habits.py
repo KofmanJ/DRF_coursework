@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
 from habits.models import Habits
-from habits.serializers.nice_habit import NiceHabitSerializer
+from habits.serializers.nice_habits import NiceHabitSerializer
 
 
 class HabitsSerializer(serializers.ModelSerializer):
