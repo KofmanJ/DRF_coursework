@@ -7,6 +7,7 @@ from habits.validators import (TimeHabitsValidator, HabitsValidator, SignAssocia
 
 
 class HabitsSerializer(serializers.ModelSerializer):
+    """Сериализатор для модели Habits"""
     # habits_count = serializers.SerializerMethodField()
     nice_habit = NiceHabitSerializer(many=True, read_only=True)
     validators = [TimeHabitsValidator('duration_time'), HabitsValidator(),
