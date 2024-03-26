@@ -7,6 +7,7 @@ from users.serializers import UserSerializer
 
 
 class UserCreateAPIView(generics.CreateAPIView):
+    """Класс создания пользователя"""
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
@@ -17,24 +18,28 @@ class UserCreateAPIView(generics.CreateAPIView):
 
 
 class UserListAPIView(generics.ListAPIView):
+    """Класс получения списка пользователей"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated]
 
 
 class UserDetailAPIView(generics.RetrieveAPIView):
+    """Класс получения подробностей о пользователе"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated]
 
 
 class UserUpdateAPIView(generics.UpdateAPIView):
+    """Класс обновления пользователя"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class UserDestroyAPIView(generics.DestroyAPIView):
+    """Класс удаления пользователя"""
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [IsAuthenticated, IsOwner]
