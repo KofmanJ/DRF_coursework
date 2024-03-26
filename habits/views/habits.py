@@ -24,7 +24,6 @@ class HabitListAPIView(ListAPIView):
     pagination_class = HabitsPagination
     permission_classes = [IsAuthenticated, IsOwner]
 
-
     def get_queryset(self):
         user = self.request.user
         habits_list = super().get_queryset()
