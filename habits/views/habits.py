@@ -6,6 +6,8 @@ from habits.paginations import HabitsPagination
 from habits.serializers.habits import HabitsSerializer
 from users.permissions import IsOwner
 
+# from habits.tasks import send_message_about_habits_time
+
 
 class HabitCreateAPIView(CreateAPIView):
     """Класс создания привычки"""

@@ -18,8 +18,10 @@ class NiceHabit(models.Model):
 
     """Модель приятной привычки"""
 
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Пользователь')
-    sign_nice_habit = models.BooleanField(default=False, verbose_name='Признак приятной привычки')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                              verbose_name='Пользователь')
+    sign_nice_habit = models.BooleanField(default=False,
+                                          verbose_name='Признак приятной привычки')
     action = models.CharField(max_length=100, verbose_name='Действие')
 
     def __str__(self):
@@ -34,14 +36,17 @@ class Habits(models.Model):
 
     """Модель привычки"""
 
-    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Создатель привычки')
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+                              verbose_name='Создатель привычки')
     place = models.CharField(max_length=100, verbose_name='Место выполнения')
     time = models.TimeField(verbose_name='Время начала выполнения')
     action = models.CharField(max_length=100, verbose_name='Действие')
-    sign_nice_habit = models.BooleanField(default=False, verbose_name='Признак приятной привычки')
-    associated_nice_habit = models.ForeignKey(NiceHabit, on_delete=models.SET_NULL, **NULLABLE,
-                                              verbose_name='Связанная привычка', related_name='nice_habit')
-    interval = models.CharField(max_length=100, verbose_name='Периодичность', choices=INTERVAL_CHOICES,
+    sign_nice_habit = models.BooleanField(default=False,
+                                          verbose_name='Признак приятной привычки')
+    associated_nice_habit = models.ForeignKey(NiceHabit, on_delete=models.SET_NULL,
+                                              **NULLABLE, verbose_name='Связанная привычка',
+                                              related_name='nice_habit')
+    interval = models.CharField(max_length=100, verbose_name='Периодичность',                               choices=INTERVAL_CHOICES,
                                 default='once_a_day')
     reward = models.CharField(max_length=200, **NULLABLE, verbose_name='Награда')
     duration_time = models.TimeField(verbose_name='Время выполнения')
